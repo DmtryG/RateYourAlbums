@@ -63,3 +63,51 @@ final class Album {
         self.country = country
     }
 }
+
+struct AlbumDTO: Codable, Identifiable {
+    let collectionId: Int
+    let collectionName: String
+    let artistName: String
+    let artworkUrl100: String?
+    let artworkUrl60: String?
+    let releaseDate: String?
+    let primaryGenreName: String?
+    let trackCount: Int?
+    let copyright: String?
+    let collectionPrice: Double?
+    let currency: String?
+    let collectionViewUrl: String?
+    let country: String?
+    
+    var id: String {
+        String(collectionId)
+    }
+    
+    // convert DTO to SwiftData model
+    func toAlbum (rating: Double = 5.0) -> Album {
+        let highResArtwork = artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
+        
+        return Album (
+            id: String(collectionId),
+            title: collectionName,
+            artistName: artistName,
+            artworkURL: highResArtwork ?? artworkUrl100,
+            releaseDate: releaseDate,
+            genre: primaryGenreName,
+            trackCount: trackCount,
+            copyright: copyright,
+            collectionPrice: collectionPrice,
+            currency: currency,
+            primaryGenreName: primaryGenreName,
+            rating: rating,
+            dateAdded: Date(),
+            collectionViewURL: collectionViewUrl,
+            country: country
+        )
+    }
+}
+
+struct iTunesSearchResponse: Codable {
+    let resultCount: Int
+    let results: [AlbumDTO]
+}
