@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct RateYourAlbumsApp: App {
@@ -13,5 +14,6 @@ struct RateYourAlbumsApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Album.self)
     }
 }

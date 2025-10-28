@@ -85,4 +85,38 @@ class iTunesAPIService {
             throw APIError.networkError(error)
         }
     }
+    
+    func fetchAlbumDetails(collectionId: String) async throws -> AlbumDTO? {
+        var components = URLComponents(string: "https://itunes.apple.com/lookup")
+        components?.queryItems = [
+            URLQueryItem(name: "id", value: collectionId),
+            URLQueryItem(name: "entity", value: "album"),
+        ]
+        
+        guard let url = components?.url else {
+            throw APIError.invalidURL
+        }
+        
+        do {
+            let (data, response) = try await session.data(from: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.noData
+            }
+            
+            guard (200...299).contains(httpResponse.statusCode) else {
+                throw APIError.serverError(statusCode: httpResponse.statusCode)
+            }
+            
+            let searchResponse = try JSONDecoder().decode(iTunesSearchResponse.self, from: data)
+            return searchResponse.results.first
+            
+        } catch let error as DecodingError {
+            throw APIError.decodingError(error)
+        } catch let error as APIError {
+            throw error
+        } catch {
+            throw APIError.networkError(error)
+        }
+    }
 }
