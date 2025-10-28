@@ -30,3 +30,59 @@ enum APIError: Error, LocalizedError {
         
     }
 }
+
+@MainActor
+class iTunesAPIService {
+    static let shared = iTunesAPIService()
+    
+    private let baseURL = "https://itunes.apple.com/search"
+    private let session: URLSession
+    
+    private init() {
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 30
+        config.timeoutIntervalForResource = 60
+        self.session = URLSession(configuration: config)
+    }
+    
+    func searchAlbums(query: String, limit: Int = 50, country: String = "US") async throws -> [AlbumDTO] {
+        guard !query.isEmpty else {
+            return []
+        }
+        
+        var components = URLComponents(string: baseURL)
+        components?.queryItems = [
+            URLQueryItem(name: "term", value: query),
+            URLQueryItem(name: "media", value: "music"),
+            URLQueryItem(name: "entity", value: "album"),
+            URLQueryItem(name: "limit", value: String(limit)),
+            URLQueryItem(name: "country", value: country)
+        ]
+        
+        guard let url = components?.url else {
+            throw APIError.invalidURL
+        }
+        
+        do {
+            let (data, response) = try await session.data(from: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.noData
+            }
+            
+            guard (200...299).contains(httpResponse.statusCode) else {
+                throw APIError.serverError(statusCode: httpResponse.statusCode)
+            }
+            
+            let searchResponse = try JSONDecoder().decode(iTunesSearchResponse.self, from: data)
+            return searchResponse.results
+            
+        } catch let error as DecodingError {
+            throw APIError.decodingError(error)
+        } catch let error as APIError {
+            throw error
+        } catch {
+            throw APIError.networkError(error)
+        }
+    }
+}
