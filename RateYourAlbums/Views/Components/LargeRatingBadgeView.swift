@@ -14,7 +14,7 @@ struct LargeRatingBadgeView: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(getRatingColor(rating).opacity(0.3))
+                .fill(getRatingColor(rating).opacity(0.4))
                 .blur(radius: 8)
             Circle()
                 .strokeBorder(getRatingColor(rating), lineWidth: size * 0.06)
