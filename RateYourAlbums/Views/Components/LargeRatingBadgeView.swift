@@ -20,7 +20,7 @@ struct LargeRatingBadgeView: View {
                 .strokeBorder(getRatingColor(rating), lineWidth: size * 0.06)
             
             VStack (spacing: 4) {
-                if (rating != 10.0) {
+                if rating != 10.0 {
                     Text(String(format: "%.1f", rating))
                         .font(.system(size: size * 0.4, weight: .bold, design: .rounded))
                         .foregroundStyle(getRatingColor(rating))

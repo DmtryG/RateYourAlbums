@@ -55,7 +55,7 @@ struct RatingBadgeView: View {
                 )
             
             VStack (spacing: 0) {
-                if (rating != 10) {
+                if rating != 10 {
                     Text(String(format: "%.1f", rating))
                         .font(.system(size: displayFontSize, weight: .bold, design: .rounded))
                         .foregroundStyle(getRatingColor(rating))
