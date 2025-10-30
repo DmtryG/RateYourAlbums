@@ -23,18 +23,19 @@ struct LibraryView: View {
                     albumList
                 }
             }
+            .navigationTitle("Library")
             .searchable(text: $viewModel.searchText)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Library")
-                        .font(.title)
-                        .fontWidth(.expanded)
-                        .fontWeight(.bold)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    sortMenu
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .principal) {
+//                    Text("Library")
+//                        .font(.title)
+//                        .fontWidth(.expanded)
+//                        .fontWeight(.bold)
+//                }
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    sortMenu
+//                }
+//            }
             .onAppear {
                 viewModel.setModelContext(modelContext)
                 viewModel.fetchAlbums()

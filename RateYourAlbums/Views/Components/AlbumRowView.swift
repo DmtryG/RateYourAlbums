@@ -21,9 +21,11 @@ struct AlbumRowView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(album.title)
                     .font(.headline)
+                    .fontWeight(.semibold)
                     .lineLimit(1)
                 Text (album.artistName)
                     .font(.subheadline)
+                    .fontWeight(.medium)
                     .foregroundStyle(.red.opacity(0.8))
                     .lineLimit(1)
             }

@@ -25,6 +25,7 @@ struct EmptyStateView: View {
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
         }
+        .frame(maxHeight: .infinity)
     }
 }
 
