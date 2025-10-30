@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AlbumRowView: View {
     let album: Album
+    
     var body: some View {
         HStack (spacing: 12) {
             AlbumCoverView(
