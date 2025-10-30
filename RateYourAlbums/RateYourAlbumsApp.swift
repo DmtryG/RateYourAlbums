@@ -12,7 +12,7 @@ import SwiftData
 struct RateYourAlbumsApp: App {
     var body: some Scene {
         WindowGroup {
-            SearchView()
+            ContentView()
         }
         .modelContainer(for: Album.self)
     }

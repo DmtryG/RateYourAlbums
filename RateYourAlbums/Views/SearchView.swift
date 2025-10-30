@@ -61,7 +61,7 @@ struct SearchView: View {
             }
         }
         .padding()
-        .background(Color(.systemGray5))
+        .background(Color(.systemGray6))
         .clipShape(Capsule())
         .padding()
     }
