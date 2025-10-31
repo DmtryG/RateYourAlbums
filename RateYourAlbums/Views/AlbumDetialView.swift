@@ -109,6 +109,21 @@ struct AlbumDetialView: View {
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 8)
+                
+                Button (role: .destructive) {
+                    showingDeleteConfirmation = true
+                } label: {
+                    HStack {
+                        Image (systemName: "trash")
+                        Text ("Delete from library")
+                    }
+                    .padding(12)
+                    .frame(maxWidth: .infinity)
+                }
+                .font(.headline)
+                .buttonStyle(.borderedProminent)
+                .padding(.horizontal, 20)
+                .padding(.top, 16)
             }
         }
     }
