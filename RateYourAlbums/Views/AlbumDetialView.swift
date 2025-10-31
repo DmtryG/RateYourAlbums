@@ -33,6 +33,7 @@ struct AlbumDetialView: View {
                         cornerRadius: 36
                     )
                     .padding(.top, 16)
+                    .shadow(color: .black.opacity(0.6), radius: 15)
                     
                     VStack (spacing: 5) {
                         Text (album.title)
@@ -92,7 +93,22 @@ struct AlbumDetialView: View {
                     }
                     .padding(.vertical, 5)
                 }
+                Divider()
+                    .padding(.top, 20)
+                    .padding(.horizontal, 20)
                 
+                VStack (alignment: .leading, spacing: 12) {
+                    Text ("Additional details")
+                        .font(.headline)
+                    
+                    DetailRowView(
+                        icon: "clock",
+                        title: "Date added",
+                        value: formatDate(album.dateAdded)
+                    )
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
             }
         }
     }
@@ -100,6 +116,14 @@ struct AlbumDetialView: View {
     private func saveRating() {
         album.rating = currentRating
         try? modelContext.save()
+    }
+    
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.locale = Locale(identifier: "ru_RU")
+        return formatter.string(from: date)
     }
 }
 
