@@ -24,7 +24,93 @@ struct AlbumDetialView: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ScrollView {
+                VStack (spacing: 20) {
+                    AlbumCoverView(
+                        artworkURL: album.artworkURL,
+                        size: 250,
+                        cornerRadius: 36
+                    )
+                    .padding(.top, 16)
+                    
+                    VStack (spacing: 5) {
+                        Text (album.title)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
+                        Text (album.artistName)
+                            .font(.headline)
+                            .foregroundStyle(.red)
+                            .lineLimit(1)
+                    }
+                    .padding(.horizontal, 40)
+                    
+                    HStack (spacing: 12) {
+                        if let year = album.releaseDate?.prefix(4) {
+                            InfoBadge(icon: "calendar", text: String(year))
+                        }
+                        if let trackCount = album.trackCount {
+                            InfoBadge(icon: "music.note.list", text: "\(trackCount) tracks")
+                        }
+                        if let genre = album.primaryGenreName ?? album.genre {
+                            InfoBadge(icon: "music.note", text: genre)
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    Divider()
+                        .padding(.horizontal, 20)
+                    
+                    VStack (spacing: 30) {
+                        HStack {
+                            Text ("Your rating")
+                                .font(.headline)
+                            
+                            Spacer()
+                            
+                            Button {
+                                withAnimation {
+                                    if isEditingRating {
+                                        saveRating()
+                                    }
+                                    isEditingRating.toggle()
+                                }
+                            } label: {
+                                isEditingRating ? Image (systemName: "checkmark") : Image (systemName: "pencil")
+                                Text (isEditingRating ? "Done" : "Edit")
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .tint(.red)
+                        }
+                        .padding(.horizontal, 20)
+                        
+                        LargeRatingBadgeView(rating: 9.5, size: 160)
+                    }
+                    .padding(.vertical, 5)
+                }
+                
+            }
+        }
+    }
+    
+    private func saveRating() {
+        album.rating = currentRating
+        try? modelContext.save()
     }
 }
 
+#Preview {
+    AlbumDetialView(album: Album(
+        id: "1",
+        title: "Abbey Road",
+        artistName: "The Beatles",
+        artworkURL: nil, releaseDate: "1969",
+        genre: "Pop",
+        trackCount: 14,
+        rating: 9.5
+    ))
+}
