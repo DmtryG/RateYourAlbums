@@ -89,7 +89,7 @@ struct AlbumDetialView: View {
                         }
                         .padding(.horizontal, 20)
                         
-                        LargeRatingBadgeView(rating: 9.5, size: 160)
+                        LargeRatingBadgeView(rating: 9.5, size: 180)
                     }
                     .padding(.vertical, 5)
                 }
@@ -139,6 +139,12 @@ struct AlbumDetialView: View {
         formatter.timeStyle = .none
         formatter.locale = Locale(identifier: "ru_RU")
         return formatter.string(from: date)
+    }
+    
+    private func deleteAlbum () {
+        modelContext.delete(album)
+        try? modelContext.save()
+        dismiss()
     }
 }
 
