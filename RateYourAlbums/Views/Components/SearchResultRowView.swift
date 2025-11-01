@@ -32,7 +32,7 @@ struct SearchResultRowView: View {
                 
                 HStack (spacing: 4) {
                     if let year = album.releaseDate?.prefix(4) {
-                        HStack (spacing: 2) {
+                        HStack (spacing: 4) {
                             Image(systemName: "calendar")
                                 .font(.caption2)
                             Text(String(year))
@@ -42,7 +42,7 @@ struct SearchResultRowView: View {
                     }
                     
                     if let genre = album.primaryGenreName {
-                        HStack (spacing: 2) {
+                        HStack (spacing: 4) {
                             Image(systemName: "music.note")
                                 .font(.caption2)
                             Text(String(genre))

@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C323BDAC2EB132850060690E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C323BDAB2EB132850060690E /* README.md */; };
+		C3CC40332EB67E6700800731 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C3CC40322EB67E6700800731 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C31FC1182EB0C65C00868D11 /* RateYourAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateYourAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C323BDAB2EB132850060690E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C3CC40322EB67E6700800731 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -37,6 +39,7 @@
 		C31FC10F2EB0C65C00868D11 = {
 			isa = PBXGroup;
 			children = (
+				C3CC40322EB67E6700800731 /* .gitignore */,
 				C323BDAB2EB132850060690E /* README.md */,
 				C31FC11A2EB0C65C00868D11 /* RateYourAlbums */,
 				C31FC1192EB0C65C00868D11 /* Products */,
@@ -115,6 +118,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3CC40332EB67E6700800731 /* .gitignore in Resources */,
 				C323BDAC2EB132850060690E /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
