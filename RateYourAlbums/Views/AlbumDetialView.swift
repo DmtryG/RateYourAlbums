@@ -89,7 +89,13 @@ struct AlbumDetialView: View {
                         }
                         .padding(.horizontal, 20)
                         
-                        LargeRatingBadgeView(rating: 9.5, size: 180)
+                        if isEditingRating {
+                            RatingEditorView(rating: $currentRating)
+                                .transition(.scale.combined(with: .opacity))
+                        } else {
+                            LargeRatingBadgeView(rating: 9.5, size: 180)
+                                .transition(.scale.combined(with: .opacity))
+                        }
                     }
                     .padding(.vertical, 5)
                 }
