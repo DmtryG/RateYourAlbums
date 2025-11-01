@@ -36,6 +36,9 @@ struct SearchView: View {
             .onAppear {
                 libraryViewModel.setModelContext(modelContext)
             }
+            .sheet(item: $selectedAlbum) { album in
+                AlbumRatingView(albumDTO: album)
+            }
         }
     }
     

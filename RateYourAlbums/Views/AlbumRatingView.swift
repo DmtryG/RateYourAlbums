@@ -61,10 +61,58 @@ struct AlbumRatingView: View {
                     VStack (spacing: 30) {
                         Text ("Your rating")
                             .font(.headline)
+                        
+                        RatingEditorView(rating: $rating)
                     }
                     .padding(.vertical, 5)
+                    
+                    Button {
+                        saveAlbum()
+                    } label: {
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill")
+                            Text ("Add to library")
+                        }
+                        .padding(12)
+                        .frame(maxWidth: .infinity)
+                    }
+                    .font(.headline)
+                    .buttonStyle(.borderedProminent)
+                    .tint(.green)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 1)
                 }
             }
+            .navigationTitle("Rate the album")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                    }
+                }
+            }
+            .alert("Album added", isPresented: $showingSaveConfirmation) {
+                Button ("Ok") {
+                    dismiss()
+                }
+            } message: {
+                Text("\(albumDTO.collectionName) was added to your library with a rating \(String(format: "%.1f", rating))")
+            }
+        }
+    }
+    
+    private func saveAlbum() {
+        let album = albumDTO.toAlbum(rating: rating)
+        modelContext.insert(album)
+        
+        do {
+            try modelContext.save()
+            showingSaveConfirmation = true
+        } catch {
+            print ("Error saving album: \(error)")
         }
     }
 }

@@ -17,13 +17,13 @@ struct RatingEditorView: View {
             
             VStack (spacing: 1) {
                 HStack {
-                    Text ("1")
+                    Text ("1.0")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     
                     Spacer()
                     
-                    Text ("10")
+                    Text ("10.0")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -31,7 +31,7 @@ struct RatingEditorView: View {
                     .tint(getRatingColor(rating))
             }
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 22)
     }
 }
 
