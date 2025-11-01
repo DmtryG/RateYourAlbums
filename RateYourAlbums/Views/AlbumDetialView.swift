@@ -125,6 +125,28 @@ struct AlbumDetialView: View {
                 .padding(.horizontal, 20)
                 .padding(.top, 16)
             }
+            .navigationTitle("Album details")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                    }
+                }
+            }
+            .confirmationDialog("Delete album?",
+                                isPresented: $showingDeleteConfirmation,
+                                titleVisibility: .visible
+            ) {
+                Button ("Delete", role: .destructive) {
+                    deleteAlbum()
+                }
+                Button ("Cancel", role: .cancel) {}
+            } message: {
+                Text ("Are you sure you want to delete \(album.title) from your library?")
+            }
         }
     }
     
@@ -137,7 +159,7 @@ struct AlbumDetialView: View {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
-        formatter.locale = Locale(identifier: "ru_RU")
+        formatter.locale = Locale(identifier: "en_US")
         return formatter.string(from: date)
     }
     
