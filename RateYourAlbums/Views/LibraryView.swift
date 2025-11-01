@@ -25,23 +25,15 @@ struct LibraryView: View {
             }
             .navigationTitle("Library")
             .searchable(text: $viewModel.searchText)
-//            .toolbar {
-//                ToolbarItem(placement: .principal) {
-//                    Text("Library")
-//                        .font(.title)
-//                        .fontWidth(.expanded)
-//                        .fontWeight(.bold)
-//                }
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    sortMenu
-//                }
-//            }
             .onAppear {
                 viewModel.setModelContext(modelContext)
                 viewModel.fetchAlbums()
             }
             .onChange(of: viewModel.selectedSortOption) { _, _ in
                 viewModel.fetchAlbums()
+            }
+            .sheet(item: $selectedAlbum) { album in
+                AlbumDetialView(album: album)
             }
         }
     }
