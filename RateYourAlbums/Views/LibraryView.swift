@@ -25,6 +25,11 @@ struct LibraryView: View {
             }
             .navigationTitle("Library")
             .searchable(text: $viewModel.searchText)
+            .toolbar {
+                ToolbarItem (placement: .topBarTrailing) {
+                    sortMenu
+                }
+            }
             .onAppear {
                 viewModel.setModelContext(modelContext)
                 viewModel.fetchAlbums()
@@ -69,6 +74,7 @@ struct LibraryView: View {
                             Spacer()
                         }
                         .padding(.horizontal, 8)
+                        .padding(.top, 8)
                     }
                 }
             }
