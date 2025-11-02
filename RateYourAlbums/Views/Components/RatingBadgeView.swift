@@ -16,6 +16,8 @@ extension View {
             return .orange
         case 7.0..<10.0:
             return .green
+        case 10:
+            return .purple
         default:
             return .gray
         }
@@ -28,8 +30,10 @@ func getRatingColor(_ rating: Double) -> Color {
         return .red
     case 4.0..<7.0:
         return .orange
-    case 7.0...10.0:
+    case 7.0..<10.0:
         return .green
+    case 10:
+        return .purple.opacity(0.75)
     default:
         return .gray
     }
