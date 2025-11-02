@@ -93,7 +93,7 @@ struct AlbumDetialView: View {
                             RatingEditorView(rating: $currentRating)
                                 .transition(.scale.combined(with: .opacity))
                         } else {
-                            LargeRatingBadgeView(rating: 9.5, size: 180)
+                            LargeRatingBadgeView(rating: currentRating, size: 180)
                                 .transition(.scale.combined(with: .opacity))
                         }
                     }
