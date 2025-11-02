@@ -40,22 +40,36 @@ struct LibraryView: View {
     
     private var albumList: some View {
         ScrollView {
-            LazyVStack (spacing: 12) {
-                ForEach (viewModel.filteredAlbums, id: \.id) { album in
-                    AlbumRowView(album: album)
-                        .onTapGesture {
-                            selectedAlbum = album
-                        }
-                        .swipeActions(edge: .trailing, allowsFullSwipe: true){
-                            Button (role: .destructive) {
-                                withAnimation {
-                                    viewModel.deleteAlbum(album)
-                                }
-                            } label: {
-                                Label("Delete", image: "trash")
+            LazyVStack (spacing: 10, pinnedViews: [.sectionHeaders]) {
+                ForEach (viewModel.albumsByMonth, id: \.monthYear) { section in
+                    Section {
+                        LazyVStack (spacing: 12) {
+                            ForEach (viewModel.filteredAlbums, id: \.id) { album in
+                                AlbumRowView(album: album)
+                                    .onTapGesture {
+                                        selectedAlbum = album
+                                    }
+                                    .swipeActions(edge: .trailing, allowsFullSwipe: true){
+                                        Button (role: .destructive) {
+                                            withAnimation {
+                                                viewModel.deleteAlbum(album)
+                                            }
+                                        } label: {
+                                            Label("Delete", image: "trash")
+                                        }
+                                    }
                             }
                         }
-                    
+                    } header: {
+                        HStack {
+                            Text (section.monthYear)
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.primary)
+                            Spacer()
+                        }
+                        .padding(.top, 10)
+                    }
                 }
             }
             .padding()
@@ -78,13 +92,16 @@ struct LibraryView: View {
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Album.self, configurations: config)
+    let calendar = Calendar.current
+    let now = Date()
     
     let album1 = Album(
         id: "1",
         title: "Abbey Road",
         artistName: "The Beatles",
         artworkURL: nil,
-        rating: 9.5
+        rating: 9.5,
+        dateAdded: now
     )
     
     let album2 = Album(
@@ -92,7 +109,8 @@ struct LibraryView: View {
         title: "Dark Side of the Moon",
         artistName: "Pink Floyd",
         artworkURL: nil,
-        rating: 10.0
+        rating: 10.0,
+        dateAdded: calendar.date(byAdding: .month, value: -1, to: Date())!
     )
     
     container.mainContext.insert(album1)

@@ -67,6 +67,32 @@ class LibraryViewModel {
         }
     }
     
+    var albumsByMonth: [(monthYear: String, albums: [Album])] {
+        let filtered = filteredAlbums
+        
+        let groupedDictionary = Dictionary(grouping: filtered) { album -> String in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM yyyy"
+            formatter.locale = Locale(identifier: "en_US")
+            return formatter.string(from: album.dateAdded)
+        }
+            
+        let sorted = groupedDictionary.sorted { first, second in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM yyyy"
+            formatter.locale = Locale(identifier: "en_US")
+            
+            guard let firstDate = formatter.date(from: first.key),
+                  let secondDate = formatter.date(from: second.key) else {
+                return false
+            }
+            
+            return firstDate > secondDate
+        }
+        
+        return sorted.map { (monthYear: $0.key, albums: $0.value)}
+    }
+    
     func deleteAlbum(_ album: Album) {
         guard let modelContext = modelContext else {
             return
