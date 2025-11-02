@@ -68,7 +68,7 @@ struct LibraryView: View {
                                 .foregroundStyle(.primary)
                             Spacer()
                         }
-                        .padding(.top, 10)
+                        .padding(.horizontal, 8)
                     }
                 }
             }
