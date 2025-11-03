@@ -73,11 +73,55 @@ class StatsViewModel {
     
     func getContributionData() -> [[DayContribution]] {
         var calendar = Calendar.current
-        calendar.firstWeekday = 1
         let today = Date()
         
         guard let startDate = calendar.date(byAdding: .weekOfYear, value: -52, to: today) else {
             return []
         }
+        
+        guard let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: startDate)) else {
+            return []
+        }
+        
+        let albumsByDate = Dictionary(grouping: albums) { album -> String in
+            let components = calendar.dateComponents([.year, .month, .day], from: album.dateAdded)
+            guard let date = calendar.date(from: components) else {
+                return ""
+            }
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-mm-dd"
+            return formatter.string(from: date)
+        }
+        
+        var weeks: [[DayContribution]] = []
+        var currentWeek: [DayContribution] = []
+        var currentDate = weekStart
+        
+        for _ in 0..<(53 * 7) {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-mm-dd"
+            let dateString = formatter.string(from: currentDate)
+            
+            let count = albumsByDate[dateString]?.count ?? 0
+            let contribution = DayContribution(date: currentDate, count: count)
+            currentWeek.append(contribution)
+            
+            if currentWeek.count == 7 {
+                weeks.append(currentWeek)
+                currentWeek = []
+            }
+            
+            currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate)!
+            
+            if currentDate > today {
+                break
+            }
+        }
+        
+        if !currentWeek.isEmpty {
+            weeks.append(currentWeek)
+        }
+        
+        return weeks
     }
 }
