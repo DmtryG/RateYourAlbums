@@ -49,5 +49,35 @@ class StatsViewModel {
         }
     }
     
+    var totalAlbumsRated: Int {
+        return albums.count
+    }
     
+    var albumsRatedThisMonth: Int {
+        let calendar = Calendar.current
+        let now = Date()
+        
+        return albums.filter { album in
+            calendar.isDate(album.dateAdded, equalTo: now, toGranularity: .month)
+        }.count
+    }
+    
+    var averageRating: Double {
+        guard !albums.isEmpty else {
+            return 0
+        }
+        
+        let sum = albums.reduce(0.0) { $0 + $1.rating}
+        return sum / Double(albums.count)
+    }
+    
+    func getContributionData() -> [[DayContribution]] {
+        var calendar = Calendar.current
+        calendar.firstWeekday = 1
+        let today = Date()
+        
+        guard let startDate = calendar.date(byAdding: .weekOfYear, value: -52, to: today) else {
+            return []
+        }
+    }
 }
