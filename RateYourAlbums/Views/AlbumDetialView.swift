@@ -33,7 +33,7 @@ struct AlbumDetialView: View {
                         cornerRadius: 36
                     )
                     .padding(.top, 16)
-                    .shadow(color: .black.opacity(0.6), radius: 15)
+                    .shadow(color: .black.opacity(0.25), radius: 15)
                     
                     VStack (spacing: 5) {
                         Text (album.title)
