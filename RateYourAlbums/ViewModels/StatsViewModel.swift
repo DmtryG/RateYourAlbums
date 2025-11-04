@@ -72,7 +72,7 @@ class StatsViewModel {
     }
     
     func getContributionData() -> [[DayContribution]] {
-        var calendar = Calendar.current
+        let calendar = Calendar.current
         let today = Date()
         
         guard let startDate = calendar.date(byAdding: .weekOfYear, value: -52, to: today) else {
@@ -123,5 +123,44 @@ class StatsViewModel {
         }
         
         return weeks
+    }
+    
+    func getMonthLabels() -> [(month: String, weekIndex: Int)] {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        guard let startDate = calendar.date(byAdding: .weekOfYear, value: -52, to: today) else {
+            return []
+        }
+        
+        guard let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: startDate)) else {
+            return []
+        }
+        
+        var labels: [(String, Int)] = []
+        var currentDate = weekStart
+        var lastMonth = -1
+        var weekIndex = 0
+        
+        for _ in 0..<53 {
+            let month = calendar.component(.month, from: currentDate)
+            
+            if month != lastMonth {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MMM"
+                let monthString = formatter.string(from: currentDate)
+                labels.append((monthString, weekIndex))
+                lastMonth = month
+            }
+            
+            currentDate = calendar.date(byAdding: .weekOfYear, value: 1, to: currentDate)!
+            weekIndex += 1
+            
+            if currentDate > today {
+                break
+            }
+        }
+        
+        return labels
     }
 }
