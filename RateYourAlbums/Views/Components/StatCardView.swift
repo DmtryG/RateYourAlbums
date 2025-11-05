@@ -15,14 +15,14 @@ struct StatCardView: View {
     var fullWidth: Bool = false
     
     var body: some View {
-        VStack (alignment: .leading, spacing: 12) {
+        VStack (alignment: .leading, spacing: 8) {
             HStack {
                 Image(systemName: icon)
                     .font(.title2)
                     .foregroundStyle(color)
                 Spacer()
             }
-            VStack (alignment: .leading, spacing: 2) {
+            VStack (alignment: .leading, spacing: 0) {
                 Text (value)
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -30,6 +30,7 @@ struct StatCardView: View {
                     .foregroundStyle(.primary)
                 Text (title)
                     .font(.subheadline)
+                    .fontWeight(.medium)
                     .foregroundStyle(.secondary)
             }
         }
@@ -45,8 +46,8 @@ struct StatCardView: View {
 
 #Preview {
     HStack {
-        StatCardView(title: "Total albums", value: "50", icon: "music.note.list", color: .blue)
-        StatCardView(title: "This month", value: "15", icon: "calendar", color: .green)
+        StatCardView(title: "Total albums", value: "50", icon: "music.note.square.stack.fill", color: .red)
+        StatCardView(title: "This month", value: "15", icon: "31.calendar", color: .red)
     }
     .padding()
 }
