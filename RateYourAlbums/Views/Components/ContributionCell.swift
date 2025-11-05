@@ -15,6 +15,27 @@ struct ContributionCell: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 4)
+            .fill(colorForLevel(contribution.level))
+            .frame(width: size, height: size)
+            .overlay(
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(Color.gray.opacity(0.15), lineWidth: 0.5)
+            )
+            .onTapGesture {
+                showTooltip.toggle()
+            }
+            .popover(isPresented: $showTooltip) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text (formatDate(contribution.date))
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                    Text("\(contribution.count) album\(contribution.count == 1 ? "" : "s")")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(5)
+                .presentationCompactAdaptation(.popover)
+            }
     }
     
     private func colorForLevel (_ level: Int) -> Color {
@@ -26,5 +47,11 @@ struct ContributionCell: View {
         case 4: return Color.red
         default: return Color.gray.opacity(0.1)
         }
+    }
+    
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
     }
 }
