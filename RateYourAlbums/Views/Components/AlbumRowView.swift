@@ -38,7 +38,7 @@ struct AlbumRowView: View {
             )
         }
         .padding(10)
-        .background(Color(.systemBackground))
+        .background(Color(.secondarySystemBackground))
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .shadow(color: .black.opacity(0.1), radius: 8)
     }
