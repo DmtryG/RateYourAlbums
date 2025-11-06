@@ -38,7 +38,7 @@ struct StatCardView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color(.systemBackground))
+                .fill(Color(.secondarySystemBackground))
                 .shadow(color: .black.opacity(0.05), radius: 10)
         )
     }
