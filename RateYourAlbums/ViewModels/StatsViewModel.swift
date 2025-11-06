@@ -34,7 +34,7 @@ class StatsViewModel {
     }
     
     func fetchAlbums() {
-        guard let modelContext else {
+        guard let modelContext = modelContext else {
             return
         }
         
@@ -89,7 +89,7 @@ class StatsViewModel {
                 return ""
             }
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-mm-dd"
+            formatter.dateFormat = "yyyy-MM-dd"
             return formatter.string(from: date)
         }
         
@@ -99,7 +99,7 @@ class StatsViewModel {
         
         for _ in 0..<(53 * 7) {
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-mm-dd"
+            formatter.dateFormat = "yyyy-MM-dd"
             let dateString = formatter.string(from: currentDate)
             
             let count = albumsByDate[dateString]?.count ?? 0
