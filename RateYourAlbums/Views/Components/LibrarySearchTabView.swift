@@ -16,9 +16,9 @@ struct LibrarySearchTabView: View {
             Tab("Search", systemImage: "magnifyingglass") {
                 SearchView()
             }
-            Tab("Profile", systemImage: "person.crop.circle.fill") {
-                StatsView()
-            }
+//            Tab("Profile", systemImage: "person.crop.circle.fill") {
+//                StatsView()
+//            }
         }
         .tint(.red)
     }
