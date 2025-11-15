@@ -23,6 +23,11 @@
 			path = RateYourAlbums;
 			sourceTree = "<group>";
 		};
+		C399436E2EC8ADF100A719EB /* Images */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 				C323BDAB2EB132850060690E /* README.md */,
 				C31FC11A2EB0C65C00868D11 /* RateYourAlbums */,
 				C31FC1192EB0C65C00868D11 /* Products */,
+				C399436E2EC8ADF100A719EB /* Images */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +77,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				C31FC11A2EB0C65C00868D11 /* RateYourAlbums */,
+				C399436E2EC8ADF100A719EB /* Images */,
 			);
 			name = RateYourAlbums;
 			packageProductDependencies = (
