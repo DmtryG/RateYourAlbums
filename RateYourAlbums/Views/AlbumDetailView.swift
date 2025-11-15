@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct AlbumDetialView: View {
+struct AlbumDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     
@@ -177,7 +177,7 @@ struct AlbumDetialView: View {
 }
 
 #Preview {
-    AlbumDetialView(album: Album(
+    AlbumDetailView(album: Album(
         id: "1",
         title: "Abbey Road",
         artistName: "The Beatles",

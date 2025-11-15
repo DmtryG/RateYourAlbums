@@ -38,7 +38,7 @@ struct LibraryView: View {
                 viewModel.fetchAlbums()
             }
             .sheet(item: $selectedAlbum) { album in
-                AlbumDetialView(album: album)
+                AlbumDetailView(album: album)
             }
         }
     }
