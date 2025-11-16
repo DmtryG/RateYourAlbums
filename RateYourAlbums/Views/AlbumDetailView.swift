@@ -29,7 +29,7 @@ struct AlbumDetailView: View {
                 VStack (spacing: 20) {
                     AlbumCoverView(
                         artworkURL: album.artworkURL,
-                        size: 250,
+                        size: 300,
                         cornerRadius: 36
                     )
                     .padding(.top, 16)

@@ -23,7 +23,7 @@ struct AlbumRatingView: View {
                 VStack (spacing: 20) {
                     AlbumCoverView(
                         artworkURL: albumDTO.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600"),
-                        size: 250,
+                        size: 300,
                         cornerRadius: 36
                     )
                     .padding(.top, 16)
