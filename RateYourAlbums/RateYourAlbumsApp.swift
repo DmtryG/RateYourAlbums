@@ -2,11 +2,10 @@
 //  RateYourAlbumsApp.swift
 //  RateYourAlbums
 //
-//  Created by Dmitriy Guryanov on 28.10.2025.
+//  Created by Dmitriy Guryanov on 29.11.2025.
 //
 
 import SwiftUI
-import SwiftData
 
 @main
 struct RateYourAlbumsApp: App {
@@ -14,6 +13,5 @@ struct RateYourAlbumsApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Album.self)
     }
 }

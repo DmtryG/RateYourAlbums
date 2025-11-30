@@ -7,31 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C323BDAC2EB132850060690E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C323BDAB2EB132850060690E /* README.md */; };
-		C3CC40332EB67E6700800731 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C3CC40322EB67E6700800731 /* .gitignore */; };
+		C30F957F2EDA3E59008316FA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C30F957E2EDA3E59008316FA /* .gitignore */; };
+		C30F95952EDCD36E008316FA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C30F95942EDCD36B008316FA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C31FC1182EB0C65C00868D11 /* RateYourAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateYourAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C323BDAB2EB132850060690E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		C3CC40322EB67E6700800731 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C30F957E2EDA3E59008316FA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C30F95942EDCD36B008316FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C3D0DAD92EDA3DA500E20B2A /* RateYourAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RateYourAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C31FC11A2EB0C65C00868D11 /* RateYourAlbums */ = {
+		C3D0DADB2EDA3DA500E20B2A /* RateYourAlbums */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RateYourAlbums;
-			sourceTree = "<group>";
-		};
-		C399436E2EC8ADF100A719EB /* Images */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C31FC1152EB0C65C00868D11 /* Frameworks */ = {
+		C3D0DAD62EDA3DA500E20B2A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,21 +36,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C31FC10F2EB0C65C00868D11 = {
+		C3D0DAD02EDA3DA500E20B2A = {
 			isa = PBXGroup;
 			children = (
-				C3CC40322EB67E6700800731 /* .gitignore */,
-				C323BDAB2EB132850060690E /* README.md */,
-				C31FC11A2EB0C65C00868D11 /* RateYourAlbums */,
-				C31FC1192EB0C65C00868D11 /* Products */,
-				C399436E2EC8ADF100A719EB /* Images */,
+				C30F95942EDCD36B008316FA /* README.md */,
+				C30F957E2EDA3E59008316FA /* .gitignore */,
+				C3D0DADB2EDA3DA500E20B2A /* RateYourAlbums */,
+				C3D0DADA2EDA3DA500E20B2A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C31FC1192EB0C65C00868D11 /* Products */ = {
+		C3D0DADA2EDA3DA500E20B2A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C31FC1182EB0C65C00868D11 /* RateYourAlbums.app */,
+				C3D0DAD92EDA3DA500E20B2A /* RateYourAlbums.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,77 +57,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C31FC1172EB0C65C00868D11 /* RateYourAlbums */ = {
+		C3D0DAD82EDA3DA500E20B2A /* RateYourAlbums */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C31FC1232EB0C65D00868D11 /* Build configuration list for PBXNativeTarget "RateYourAlbums" */;
+			buildConfigurationList = C3D0DAE42EDA3DA600E20B2A /* Build configuration list for PBXNativeTarget "RateYourAlbums" */;
 			buildPhases = (
-				C31FC1142EB0C65C00868D11 /* Sources */,
-				C31FC1152EB0C65C00868D11 /* Frameworks */,
-				C31FC1162EB0C65C00868D11 /* Resources */,
+				C3D0DAD52EDA3DA500E20B2A /* Sources */,
+				C3D0DAD62EDA3DA500E20B2A /* Frameworks */,
+				C3D0DAD72EDA3DA500E20B2A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C31FC11A2EB0C65C00868D11 /* RateYourAlbums */,
-				C399436E2EC8ADF100A719EB /* Images */,
+				C3D0DADB2EDA3DA500E20B2A /* RateYourAlbums */,
 			);
 			name = RateYourAlbums;
 			packageProductDependencies = (
 			);
 			productName = RateYourAlbums;
-			productReference = C31FC1182EB0C65C00868D11 /* RateYourAlbums.app */;
+			productReference = C3D0DAD92EDA3DA500E20B2A /* RateYourAlbums.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C31FC1102EB0C65C00868D11 /* Project object */ = {
+		C3D0DAD12EDA3DA500E20B2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
-					C31FC1172EB0C65C00868D11 = {
-						CreatedOnToolsVersion = 26.0.1;
+					C3D0DAD82EDA3DA500E20B2A = {
+						CreatedOnToolsVersion = 26.1;
 					};
 				};
 			};
-			buildConfigurationList = C31FC1132EB0C65C00868D11 /* Build configuration list for PBXProject "RateYourAlbums" */;
+			buildConfigurationList = C3D0DAD42EDA3DA500E20B2A /* Build configuration list for PBXProject "RateYourAlbums" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = C31FC10F2EB0C65C00868D11;
+			mainGroup = C3D0DAD02EDA3DA500E20B2A;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = C31FC1192EB0C65C00868D11 /* Products */;
+			productRefGroup = C3D0DADA2EDA3DA500E20B2A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C31FC1172EB0C65C00868D11 /* RateYourAlbums */,
+				C3D0DAD82EDA3DA500E20B2A /* RateYourAlbums */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C31FC1162EB0C65C00868D11 /* Resources */ = {
+		C3D0DAD72EDA3DA500E20B2A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3CC40332EB67E6700800731 /* .gitignore in Resources */,
-				C323BDAC2EB132850060690E /* README.md in Resources */,
+				C30F95952EDCD36E008316FA /* README.md in Resources */,
+				C30F957F2EDA3E59008316FA /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C31FC1142EB0C65C00868D11 /* Sources */ = {
+		C3D0DAD52EDA3DA500E20B2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,7 +136,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C31FC1212EB0C65D00868D11 /* Debug */ = {
+		C3D0DAE22EDA3DA600E20B2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -196,7 +189,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -207,7 +200,7 @@
 			};
 			name = Debug;
 		};
-		C31FC1222EB0C65D00868D11 /* Release */ = {
+		C3D0DAE32EDA3DA600E20B2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -254,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -264,7 +257,7 @@
 			};
 			name = Release;
 		};
-		C31FC1242EB0C65D00868D11 /* Debug */ = {
+		C3D0DAE52EDA3DA600E20B2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -274,7 +267,6 @@
 				DEVELOPMENT_TEAM = 568VDJRU49;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -288,20 +280,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Dmitriy-Guryanov.RateYourAlbums";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		C31FC1252EB0C65D00868D11 /* Release */ = {
+		C3D0DAE62EDA3DA600E20B2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -311,7 +299,6 @@
 				DEVELOPMENT_TEAM = 568VDJRU49;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -325,41 +312,37 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Dmitriy-Guryanov.RateYourAlbums";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C31FC1132EB0C65C00868D11 /* Build configuration list for PBXProject "RateYourAlbums" */ = {
+		C3D0DAD42EDA3DA500E20B2A /* Build configuration list for PBXProject "RateYourAlbums" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C31FC1212EB0C65D00868D11 /* Debug */,
-				C31FC1222EB0C65D00868D11 /* Release */,
+				C3D0DAE22EDA3DA600E20B2A /* Debug */,
+				C3D0DAE32EDA3DA600E20B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C31FC1232EB0C65D00868D11 /* Build configuration list for PBXNativeTarget "RateYourAlbums" */ = {
+		C3D0DAE42EDA3DA600E20B2A /* Build configuration list for PBXNativeTarget "RateYourAlbums" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C31FC1242EB0C65D00868D11 /* Debug */,
-				C31FC1252EB0C65D00868D11 /* Release */,
+				C3D0DAE52EDA3DA600E20B2A /* Debug */,
+				C3D0DAE62EDA3DA600E20B2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C31FC1102EB0C65C00868D11 /* Project object */;
+	rootObject = C3D0DAD12EDA3DA500E20B2A /* Project object */;
 }
