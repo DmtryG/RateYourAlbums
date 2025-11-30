@@ -11,7 +11,7 @@ import SwiftUI
 struct RateYourAlbumsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LibraryView()
         }
     }
 }
