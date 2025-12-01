@@ -16,7 +16,7 @@ struct AlbumCoverView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.black.opacity(0.1), lineWidth: 1)
+                    .stroke(.black.opacity(0.1), lineWidth: 1)
             )
     }
 }

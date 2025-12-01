@@ -16,10 +16,12 @@ struct Typography: View {
                 Text ("To-Listen")
                     .titleStyle2()
             }
-            Text ("Album Title")
-                .albumTitleStyle()
-            Text ("Artist Name")
-                .artistNameStyle()
+            VStack(alignment: .leading) {
+                Text ("Album Title")
+                    .albumTitleStyle()
+                Text ("Artist Name")
+                    .artistNameStyle()
+            }
         }
     }
 }
