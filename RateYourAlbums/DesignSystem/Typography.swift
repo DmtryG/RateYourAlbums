@@ -29,7 +29,7 @@ struct Typography: View {
 struct TitleText1: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(Color.largeTitle)
+            .foregroundStyle(Color.title)
             .font(.largeTitle)
             .fontWeight(.heavy)
             .fontWidth(.expanded)
@@ -39,7 +39,7 @@ struct TitleText1: ViewModifier {
 struct TitleText2: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(Color.largeTitle)
+            .foregroundStyle(Color.title)
             .font(.largeTitle)
             .fontWeight(.regular)
             .fontWidth(.expanded)
@@ -49,7 +49,7 @@ struct TitleText2: ViewModifier {
 struct AlbumTitleText: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(Color.largeTitle)
+            .foregroundStyle(Color.title)
             .font(.headline)
             .fontWeight(.bold)
     }

@@ -16,8 +16,10 @@ struct AlbumRowView: View {
             VStack (alignment: .leading){
                 Text ("rosie")
                     .albumTitleStyle()
+                    .lineLimit(1)
                 Text ("ROSÉ")
                     .artistNameStyle()
+                    .lineLimit(1)
             }
             
             Spacer()
@@ -32,10 +34,9 @@ struct AlbumRowView: View {
         .foregroundStyle(LinearGradient(colors: [Color.gradientColor1, Color.gradientColor2], startPoint: .top, endPoint: .bottom))
         .overlay (
             RoundedRectangle(cornerRadius: 26)
-                .stroke(.black.opacity(0.1), lineWidth: 1)
+                .stroke(Color.border, lineWidth: 1)
         )
         .padding(.horizontal, 20)
-
     }
 }
 
