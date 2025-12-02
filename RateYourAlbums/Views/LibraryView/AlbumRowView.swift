@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct AlbumRowView: View {
+    let album: Album
+    
     var body: some View {
         HStack {
-            AlbumCoverView()
+            AlbumCoverView(coverName: "rosie")
                 .padding(.horizontal, 11)
             
             VStack (alignment: .leading){
-                Text ("rosie")
+                Text (album.title)
                     .albumTitleStyle()
-                    .lineLimit(1)
-                Text ("ROSÉ")
+                Text (album.artistName)
                     .artistNameStyle()
-                    .lineLimit(1)
             }
             
             Spacer()
             
-            RatingBadgeView()
+            RatingBadgeView(rating: album.rating, size: 70)
                 .padding(.horizontal, 11)
         }
         .frame(width: .infinity, height: 100)
@@ -41,5 +41,9 @@ struct AlbumRowView: View {
 }
 
 #Preview {
-    AlbumRowView()
+    ZStack {
+        Color.background
+        AlbumRowView(album: Album(id: UUID(), title: "rosie", artistName: "ROSÉ", releaseYear: "2024", genre: "Pop", cover: "rosie", rating: 9.4))
+    }
 }
+
