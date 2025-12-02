@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct AlbumCoverView: View {
+    let coverName: String
+    
     var body: some View {
-        Image("rosie")
+        Image(coverName)
             .resizable()
             .scaledToFit()
             .frame(width: 80, height: 80)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(.black.opacity(0.1), lineWidth: 1)
+                    .stroke(Color.border, lineWidth: 1)
             )
     }
 }
 
 #Preview {
-    AlbumCoverView()
+    AlbumCoverView(coverName: "rosie")
 }
