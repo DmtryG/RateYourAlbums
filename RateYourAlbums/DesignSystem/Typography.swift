@@ -21,6 +21,11 @@ struct Typography: View {
                     .albumTitleStyle()
                 Text ("Artist Name")
                     .artistNameStyle()
+                
+                Text ("Album Title")
+                    .largeAlbumTitleStyle()
+                Text ("Artist Name")
+                    .largeArtistNameStyle()
             }
         }
     }
@@ -35,6 +40,8 @@ struct TitleText1: ViewModifier {
             .fontWidth(.expanded)
     }
 }
+
+
 
 struct TitleText2: ViewModifier {
     func body(content: Content) -> some View {
@@ -52,6 +59,17 @@ struct AlbumTitleText: ViewModifier {
             .foregroundStyle(Color.title)
             .font(.headline)
             .fontWeight(.bold)
+            .lineLimit(1)
+    }
+}
+
+struct LargeAlbumTitleText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.title)
+            .font(.title)
+            .fontWeight(.bold)
+            .lineLimit(1)
     }
 }
 
@@ -62,6 +80,18 @@ struct ArtistNameText: ViewModifier {
             .font(.subheadline)
             .fontWeight(.semibold)
             .fontWidth(.expanded)
+            .lineLimit(1)
+    }
+}
+
+struct LargeArtistNameText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(Color.accent)
+            .font(.title2)
+            .fontWeight(.semibold)
+            .fontWidth(.expanded)
+            .lineLimit(1)
     }
 }
 
@@ -77,6 +107,12 @@ extension View {
     }
     func artistNameStyle() -> some View {
         self.modifier(ArtistNameText())
+    }
+    func largeAlbumTitleStyle() -> some View {
+        self.modifier(LargeAlbumTitleText())
+    }
+    func largeArtistNameStyle() -> some View {
+        self.modifier(LargeArtistNameText())
     }
 }
 
