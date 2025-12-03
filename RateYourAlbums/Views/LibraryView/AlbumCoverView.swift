@@ -8,21 +8,36 @@
 import SwiftUI
 
 struct AlbumCoverView: View {
-    let coverName: String
+    let cover: String
+    let size: CGFloat
+    let cornerRadius: CGFloat
+    var hasBlur: Bool = false
     
     var body: some View {
-        Image(coverName)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 80, height: 80)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.border, lineWidth: 1)
-            )
+        ZStack {
+            if hasBlur {
+                Image (cover)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: size, height: size)
+                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                    .blur(radius: 30).opacity(0.7)
+            }
+            
+            Image(cover)
+                .resizable()
+                .scaledToFit()
+                .frame(width: size, height: size)
+                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                .overlay(
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .stroke(Color.border, lineWidth: 1)
+                )
+        }
     }
 }
 
+
 #Preview {
-    AlbumCoverView(coverName: "rosie")
+    AlbumCoverView(cover: "iu", size: 250, cornerRadius: 50, hasBlur: true)
 }
