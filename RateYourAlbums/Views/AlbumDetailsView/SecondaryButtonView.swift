@@ -19,7 +19,7 @@ struct SecondaryButtonView: View {
             }
             .font(.title3)
             .fontWeight(.semibold)
-            .padding(.horizontal, 15)
+            .padding(.horizontal, 10)
             .padding(.vertical, 15)
         }
         .buttonStyle(.glass)
