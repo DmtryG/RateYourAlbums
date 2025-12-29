@@ -18,6 +18,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		C386B60C2F02BAB400437091 /* Images */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Images;
+			sourceTree = "<group>";
+		};
 		C3D0DADB2EDA3DA500E20B2A /* RateYourAlbums */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RateYourAlbums;
@@ -39,6 +44,7 @@
 		C3D0DAD02EDA3DA500E20B2A = {
 			isa = PBXGroup;
 			children = (
+				C386B60C2F02BAB400437091 /* Images */,
 				C30F95942EDCD36B008316FA /* README.md */,
 				C30F957E2EDA3E59008316FA /* .gitignore */,
 				C3D0DADB2EDA3DA500E20B2A /* RateYourAlbums */,
@@ -70,6 +76,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				C386B60C2F02BAB400437091 /* Images */,
 				C3D0DADB2EDA3DA500E20B2A /* RateYourAlbums */,
 			);
 			name = RateYourAlbums;
