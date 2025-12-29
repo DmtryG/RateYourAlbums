@@ -67,4 +67,27 @@ struct AlbumDTO: Codable, Identifiable {
     var id: String {
         String(collectionId)
     }
+    
+    func toAlbum (rating: Double = 5.0) -> Album {
+        let highResArtwork = artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
+        
+        return Album (
+            id: String(collectionId),
+            title: collectionName,
+            artistName: artistName,
+            artworkURL: highResArtwork ?? artworkUrl100,
+            releaseDate: releaseDate,
+            genre: primaryGenreName,
+            trackCount: trackCount,
+            primaryGenreName: primaryGenreName,
+            rating: rating,
+            dateAdded: Date(),
+            collectionViewURL: collectionViewUrl
+            )
+    }
+}
+
+struct iTunesSearchResponse: Codable {
+    let resultCount: Int
+    let results: [AlbumDTO]
 }
